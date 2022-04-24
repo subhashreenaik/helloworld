@@ -1,14 +1,14 @@
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
 function App() {
 var message="Hello from BridgeLabz";
 
   return (
-    //Demonstating  one way binding
+    //Demonstrating  property binding
     <div className="App">
       <h1>{message}</h1> 
-      
+      <img src={logo} alt='bridgeLabz logo'/>
     </div>
   );
 }
