@@ -2,25 +2,41 @@ import logo from './logo.png';
 import './App.css';
 import React from 'react';
 
-function App() {
-  const url="https://www.bridgelabz.com/";
-var message="Hello from BridgeLabz";
+
+class App extends React.Component {
+   url="https://www.bridgelabz.com/";
+  constructor() {
+    super()
+    this.state = {
+    userName: ''
+    }
+  }
 
 //Event Binding technique
-function onClicked(Event){
-  
+ onClicked(Event){
   console.log("button is clicked",Event);
-  window.open(url,"open")
+  window.open(this.url,"open")
+}
+onNameChnage = (Event) => {
+  console.log("value is ", Event.target.value);
+  
+  this.setState({ userName: Event.target.value })
 }
 
+render() {
   return (
-    //Demonstrating  property binding
-    <div className="App">
-      <h1>{message}</h1> 
-      <img src={logo} alt='bridgeLabz logo' onClick={onClicked(Event)}/>
-
+    <>
+    <div>
+      <h1>hello {this.state.userName} from bridgelabz</h1>
+      <img src={logo} onClick={this.onClick}
+        alt="logo" />
     </div>
+    <div>
+      <input onChange={this.onNameChnage}/>
+    </div>
+    </>
   );
+}
 }
 
 export default App;

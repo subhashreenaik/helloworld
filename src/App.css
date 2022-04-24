@@ -11,6 +11,11 @@ img{
   margin: 0 auto;
   width: 25%;
 }
+h1{
+  margin: 100px;
+  font-style: italic;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
