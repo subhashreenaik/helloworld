@@ -19,8 +19,14 @@ class App extends React.Component {
 }
 onNameChnage = (Event) => {
   console.log("value is ", Event.target.value);
-  
+  const nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
+  // set the title using setState method
   this.setState({ userName: Event.target.value })
+  if (nameRegex.test(Event.target.value)) {
+    this.setState({ nameError: '' })
+  } else {
+    this.setState({ nameError: 'Name is Incorrect' })
+  }
 }
 
 render() {
@@ -33,6 +39,7 @@ render() {
     </div>
     <div>
       <input onChange={this.onNameChnage}/>
+      <span className="error-output">{this.state.nameError}</span>
     </div>
     </>
   );
