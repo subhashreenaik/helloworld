@@ -1,8 +1,8 @@
 import logo from './logo.png';
 import './App.css';
-import React from 'react';
+import React,{component} from 'react';
 import Home from './Home';
-import Main from './Main';
+
 import { Switch,Link,Route } from 'react-router-dom';
 
 
@@ -24,6 +24,7 @@ class App extends React.Component {
    
   
 }
+
 onNameChnage = (Event) => {
   console.log("value is ", Event.target.value);
   const nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
@@ -50,7 +51,7 @@ render() {
                   alt="This Bridgelabz logo: a Bridge to Employment through lab works" />
                 <input onChange={this.onNameChnage} />
               </div>
-              <Link to="/home">Home </Link>
+              <Link to="/home" >Home </Link>
               <span className="error-output">{this.state.nameError}</span>
               <div>
                 <p>At BridgeLabz, we're a community of </p>
@@ -73,24 +74,9 @@ render() {
               </div>
             </div>
           </div>
-          <div>
-        <li>
-              <Link to="/home">Home </Link>
-              <Link to="/main">Main </Link>
-            </li>
-          
-        </div>
-        
-         {/* <Switch>
-<Route exact path='/home' element={< Home/>} ></Route>
-<Route  exact path='/main' element={<Main/>} ></Route>
-
-         </Switch>  */}
-
          <Switch>
-    <Route exact path='/' component={Home}></Route>
-    <Route exact path='/' component={Main}></Route>
-    </Switch> 
+         <Route exact path='/home' component={Home}></Route>
+         </Switch> 
       
         
     </>
